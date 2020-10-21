@@ -1,11 +1,12 @@
 package com.example.presentshopping.ui.activity
 
 import android.os.Bundle
+import com.example.presentshopping.R
 import com.example.presentshopping.config.base.BaseMvpActivity
 
 class LoginActivity : BaseMvpActivity() {
     override val layoutId: Int
-        get() = TODO("Not yet implemented")
+        get() = R.layout.login_activity
 
     override fun initView(savedInstanceState: Bundle?) {
         TODO("Not yet implemented")
