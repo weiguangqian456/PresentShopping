@@ -32,4 +32,7 @@ public class XPopupGildeLoader implements XPopupImageLoader {
         }
         return null;
     }
+
+
+
 }

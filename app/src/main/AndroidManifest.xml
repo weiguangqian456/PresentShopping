@@ -24,22 +24,40 @@
     <application
         android:name=".config.base.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/iconi"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup"
         tools:replace="android:label"
-        tools:targetApi="n"
-        >
-        <activity android:name=".ui.activity.MainActivity">
+        tools:targetApi="n">
+
+        <!--   首页     -->
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTitle"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--   登录     -->
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTitle"
+            android:windowSoftInputMode="adjustPan" />
+
+
+
 
     </application>
 

@@ -26,6 +26,19 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
     </style>
+<!--    &lt;!&ndash; activity 状态栏设置theme. &ndash;&gt;-->
+<!--    <style name="NoTitletow" parent="Theme.AppCompat.Light.NoActionBar">-->
+<!--        <item name="android:windowBackground">@drawable/loinba</item>-->
+<!--        <item name="colorPrimary">@color/colorMain</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorMain</item>-->
+<!--        <item name="colorAccent">@color/colorMain</item>-->
+<!--    </style>-->
 
+    <!-- activity 状态栏设置theme. -->
+    <style name="NoTitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorMain</item>
+        <item name="colorPrimaryDark">@color/colorMain</item>
+        <item name="colorAccent">@color/colorMain</item>
+    </style>
 
 </resources>

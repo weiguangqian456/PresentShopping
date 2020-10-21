@@ -3,6 +3,11 @@
     <string name="loadingPleaseWait">正在加载,请稍等…</string>
     <string name="NetworkError">网络不可用，请稍后再试。</string>
     <string name="sure">确定</string>
+    <string name="Login">登录/注册</string>
+    <string name="phone_name">请输入手机号</string>
+    <string name="voe_name">请输入验证码</string>
+    <string name="GetSMSCode">获取验证码</string>
+    <string name="PleaseEnterSMSCode">手机号</string>
 
 
 </resources>
