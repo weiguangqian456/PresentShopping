@@ -1,0 +1,8 @@
+<resources>
+    <string name="appname">PresentShopping</string>
+    <string name="loadingPleaseWait">正在加载,请稍等…</string>
+    <string name="NetworkError">网络不可用，请稍后再试。</string>
+    <string name="sure">确定</string>
+
+
+</resources>
