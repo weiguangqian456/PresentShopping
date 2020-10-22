@@ -8,10 +8,13 @@ import android.provider.Settings;
 import android.text.TextUtils;
 
 import com.blankj.utilcode.util.ActivityUtils;
+import com.example.presentshopping.config.bean.LoinUlist;
 import com.example.presentshopping.config.constant.Constant;
+import com.example.presentshopping.config.constant.UserInforManage;
 import com.example.presentshopping.net.observer.TaskCallback;
 import com.example.presentshopping.ui.activity.LoginActivity;
 import com.example.presentshopping.ui.activity.MainActivity;
+import com.example.presentshopping.utils.ToastUtil;
 
 
 import org.apache.commons.lang3.StringUtils;
@@ -27,6 +30,7 @@ public class IntentJumpUtils {
     public static void setLoginTypeBinderPhone(boolean mLoginType) {
         SharePrefrencesUtil.put("SP_LoginTypeBinderPhone", mLoginType);
     }
+
     // 获取 用户登录方式：微信登录为true（需要绑定手机号）； 手机号登录为false。
     public static boolean getLoginTypeBinderPhone() {
         return SharePrefrencesUtil.getBoolean("SP_LoginTypeBinderPhone", false);
@@ -127,17 +131,17 @@ public class IntentJumpUtils {
     public static boolean isLogin() {
         String data = getUserInforData();
         if (StringUtils.isNotEmpty(getUsrToken()) && StringUtils.isNotEmpty(data)) {
-//            try {
-//                UserInforBean logRegister = GsonUtils.getGson().fromJson(data, UserInforBean.class);
-//                if (logRegister != null && logRegister.getData() != null) {
-//                    // 缓存登录数据。
-//                    saveLoginData(data, logRegister);
-//                    return true;
-//                }
-//            } catch (Exception e) {
-//                // 数据解析失败 DataParsingFailed
-//                e.printStackTrace();
-//            }
+            try {
+                LoinUlist logRegister = GsonUtils.getGson().fromJson(data, LoinUlist.class);
+                if (logRegister != null && logRegister.getData() != null) {
+                    // 缓存登录数据。
+                    saveLoginData(data, logRegister);
+                    return true;
+                }
+            } catch (Exception e) {
+                // 数据解析失败 DataParsingFailed
+                e.printStackTrace();
+            }
         }
         return false;
     }
@@ -186,7 +190,7 @@ public class IntentJumpUtils {
         if (getTypes() == 1 && StringUtils.isEmpty(getEnterpriseId())) {
             // 个人用户 不显示企业相关信息
             return true;
-        } else if((getTypes() == 2 && StringUtils.isNotEmpty(getEnterpriseId())) || getUserType() == 2) {
+        } else if ((getTypes() == 2 && StringUtils.isNotEmpty(getEnterpriseId())) || getUserType() == 2) {
             // 企业用户 需要显示企业相关信息
             return false;
         }
@@ -195,6 +199,7 @@ public class IntentJumpUtils {
     }
 
     private static TaskCallback mTaskCallback;
+
     /**
      * 登录成功，参数处理，有回调。
      */
@@ -254,57 +259,78 @@ public class IntentJumpUtils {
 //                mTaskCallback.onFailure(null, 0, Failed_str, false);
 //            }
 //        }
+        try {
+            if (!data.isEmpty()) {
+                LoinUlist loinUlist = GsonUtils.getGson().fromJson(data, LoinUlist.class);
+                if (loinUlist != null && loinUlist.getData() != null) {
+                    // 登录成功
+                    if (!TextUtils.isEmpty(Succeeded_str)) {
+                        ToastUtil.showMsg(Succeeded_str);
+                    }
+                    // 缓存登录数据。
+                    saveLoginData(data, loinUlist);
+                    if (mTaskCallback != null) {
+                        mTaskCallback.onSuccess(data);
+                    } else {
+                        // 跳转到首页。
+                        startIntent(mContext, MainActivity.class);
+                        ((Activity) mContext).finish();
+                    }
+                } else {
+                    LogUtils.p("LoginSucceeded","(loinUlist != null");
 
+                    // 数据解析失败 DataParsingFailed
+                    if (!TextUtils.isEmpty(Failed_str)) {
+                        ToastUtil.showMsg(Failed_str);
+                    }
+                    if (mTaskCallback != null) {
+                        mTaskCallback.onFailure(null, 0, Failed_str, false);
+                    }
+
+                }
+            } else {
+                LogUtils.p("LoginSucceeded","data.isEmpty()");
+            // 数据解析失败 DataParsingFailed
+                if (!TextUtils.isEmpty(Failed_str)) {
+                    ToastUtil.showMsg(Failed_str);
+                }
+                if (mTaskCallback != null) {
+                    mTaskCallback.onFailure(null, 0, Failed_str, false);
+                }
+            }
+        } catch (Exception e) {
+            LogUtils.p("LoginSucceeded","(loinUlist = catch");
+            // 数据解析失败 DataParsingFailed
+            if (!TextUtils.isEmpty(Failed_str)) {
+                ToastUtil.showMsg(Failed_str);
+            }
+            if (mTaskCallback != null) {
+                mTaskCallback.onFailure(null, 0, Failed_str, false);
+            }
+        }
 
     }
 
+
+    /**
+     * 缓存用户所有的基本信息。
+     */
+    public static void setUserInforData(String data) {
+        SharePrefrencesUtil.put(Constant.UserInfor_Data, data);
+    }
+
+
     // 缓存登录数据。
-    public static void saveLoginData(String data, UserInforBean logRegister) {
-//        if (logRegister != null && logRegister.getData() != null) {
-//            // 单例模式保存 用户登录的基本信息。
-//            UserInforManage.getInstance().setUserInfor(logRegister);
-//            // 缓存用户所有的基本信息。
-//            setUserInforData(data);
-//            String token = logRegister.getData().getToken();
-//            // 缓存token
-//            setUsrToken(token);
-//
-//            if (logRegister.getData().getInfo() != null) {
-//                // 缓存 用户群体（1 内部员工 2 代理商  3终端客户(游客)）
-//                if (logRegister.getData().getInfo().getUserType().equals("1")) {
-//                    setUserType(Constant.userType_1);
-//                } else if (logRegister.getData().getInfo().getUserType().equals("2")) {
-//                    setUserType(Constant.userType_2);
-//                } else {
-//                    setUserType(Constant.userType_3);
-//                }
-//                if (StringUtils.isEmpty(token)) {
-//                    // 缓存token
-//                    setUsrToken(logRegister.getData().getInfo().getToken());
-//                }
-//                // 缓存 用户类型：1-普通用户；2-企业用户。
-//                setTypes(logRegister.getData().getInfo().getTypes());
-//                // 缓存 企业ID（个人用户为空）
-//                setEnterpriseId(logRegister.getData().getInfo().getEnterpriseId());
-//
-//                /** 保存 "userId": 0, 员工ID。 */
-//                setUsrId(logRegister.getData().getInfo().getId());
-//
-//                if (logRegister.getData().getInfo().getDeptId() == null) {
-//                    /** 保存 "deptId": 0, 部门id。 */
-//                    setDeptId(Constant.Default_STR);
-//                } else {
-//                    /** 保存 "deptId": 0, 部门id。 */
-//                    setDeptId(logRegister.getData().getInfo().getDeptId());
-//                }
-//                /** 保存用户名称。 */
-//                setUsrName(logRegister.getData().getInfo().getUsername());
-//                // 保存usr_Avatar 头像。
-//                if (TextUtils.isEmpty(getUserAvatar())) {
-//                    setUserAvatar(logRegister.getData().getInfo().getAvatar());
-//                }
-//            }
-//        }
+    public static void saveLoginData(String data, LoinUlist logRegister) {
+        if (logRegister != null && logRegister.getData() != null) {
+            UserInforManage.getInstance().setUserInfor(logRegister);
+            setUserInforData(data);
+            String token = logRegister.getData().getToken();
+            // 缓存token
+            setUsrToken(token);
+
+        }
+
     }
 
     /**

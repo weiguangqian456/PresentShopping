@@ -4,6 +4,8 @@ import android.text.TextUtils;
 import android.util.Base64;
 
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +24,23 @@ public class HttpRequest {
         params.put("token", "IntentJumpUtils.getUsrToken()");// 公共参数，用户验证。
         return params;
     }
+
+    //发送短信
+    public static HashMap<String, Object> SendSms(String phone) {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("mobile", phone);// phone	String	必填	手机号码
+        return params;
+    }
+
+    // 用户登录
+    public static HashMap<String, Object> Sendlogin(String phone, String code) {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("mobile", phone);// phone	String	必填	手机号码
+        params.put("code", code);// phone	String	必填	手机号码
+        return params;
+    }
+
+
 
 
 }

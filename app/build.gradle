@@ -24,7 +24,7 @@ android {
     // 正式环境 --- API接口地址：
     def API_RELEASE_HOST = '"http://api.lxtianxia.cn"'
     // API接口版本前缀： '"/api"' (目前为空)
-    def API_URL_dynamic = '""'
+    def API_URL_dynamic = '"http://api.lxtianxia.cn"'
     // API接口数据取第几条：
     def API_Position = 1
 
@@ -206,6 +206,9 @@ dependencies {
     //定位功能
     implementation 'com.amap.api:location:latest.integration'
     implementation 'com.amap.api:location:latest.integration'
+
+    // RecyclerView侧滑菜单，Item拖拽，滑动删除Item，自动加载更多，HeaderView，FooterView，Item分组黏贴。:https://github.com/yanzhenjie/SwipeRecyclerView
+    implementation 'com.yanzhenjie.recyclerview:x:1.3.2'
 
 
     // 支付依赖

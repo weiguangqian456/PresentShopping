@@ -283,7 +283,6 @@ public class PublicPresenter extends BasePresenter<PublicContract.View> implemen
                                 int code = json.getInt("code");
                                 String msg = json.getString("msg");
                                 if (code == Constant.CODE_Success) {
-                                    LogUtils.i("data", data);
                                     if (task != null) {
                                         task.onSuccess(data);
                                     } else {

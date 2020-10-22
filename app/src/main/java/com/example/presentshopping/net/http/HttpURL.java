@@ -21,7 +21,8 @@ public class HttpURL {
      */
     @DefaultDomain // 设置为默认域名（唯一）
     public static String baseUrl = BuildConfig.BASE_Url;// "https://www.wanandroid.com/";
-
+    // 动态路径
+    public final static String URL_dynamic = BuildConfig.URL_dynamic;// "/api";
 
 
     @Domain(name = "BaseUrlBaidu") // 非默认域名，并取别名为BaseUrlBaidu ---（非默认域名 示例）。
@@ -32,6 +33,13 @@ public class HttpURL {
 
     // 流量卡的 baseUrl
     public final static String Base_flowCardIp = "http://99.liumall.co/inter/";
+    // 1. 获取短信
+    public final static String Req_sendSms = URL_dynamic + "/api/index/getCaptcha";
+
+    public final static String Req_login = URL_dynamic + "/api/index/login";
+
+
+
 
 
 

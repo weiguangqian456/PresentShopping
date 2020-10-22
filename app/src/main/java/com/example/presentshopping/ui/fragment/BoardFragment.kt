@@ -4,12 +4,23 @@ import android.os.Bundle
 import android.view.View
 import com.example.presentshopping.R
 import com.example.presentshopping.config.base.BaseFragment
+import com.example.presentshopping.config.base.BaseMvpFragment
 
-class BoardFragment : BaseFragment() {
+class BoardFragment : BaseMvpFragment() {
     override val layoutId: Int
         get() = R.layout.fragment_board
 
     override fun initView(view: View?, savedInstanceState: Bundle?) {
 
     }
+
+    override fun onSuccess(data: String?) {
+
+    }
+
+    override fun onFailure(e: Throwable?, code: Int, msg: String?, isNetWorkError: Boolean) {
+
+    }
+
+
 }

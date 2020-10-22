@@ -35,6 +35,7 @@ public class Constant {
 
     // 构造方法的字符格式这里如果小数不足2位,会以0补足.
     public static final DecimalFormat decimalFormat = new DecimalFormat("0.00");
-
+    // 获取缓存的引导页标示（以版本号为标示）。
+    public static final String GuidePage = "GuidePage";
 
 }

@@ -65,7 +65,8 @@
                 android:textSize="13sp" />
 
             <EditText
-                android:id="@+id/et_SMSCode"
+                android:maxLength="11"
+                android:id="@+id/et_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toStartOf="@id/tv_getSMSCode"
@@ -73,7 +74,7 @@
                 android:drawablePadding="10dp"
                 android:gravity="center_vertical"
                 android:hint="@string/PleaseEnterSMSCode"
-                android:inputType="number"
+                android:inputType="phone"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
                 android:textColor="@color/colorFontDark"
@@ -83,7 +84,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_alignBottom="@id/et_SMSCode"
+                android:layout_alignBottom="@id/et_phone"
                 android:background="@color/colorLines" />
         </RelativeLayout>
 
@@ -93,7 +94,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/et_phone"
+                android:id="@+id/et_SMSCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorEmpty"
@@ -110,7 +111,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_alignBottom="@id/et_phone"
+                android:layout_alignBottom="@id/et_SMSCode"
                 android:background="@color/colorLines" />
         </RelativeLayout>
 

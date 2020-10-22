@@ -123,7 +123,7 @@ public class RxHttpManager {
             //p.setUrl("");
             String token = IntentJumpUtils.getUsrToken();
             LogUtils.p("token: ", token);
-            return p.addHeader("Authorization", token)//添加公共请求头  .add("time", System.currentTimeMillis())//添加公共参数
+            return p.addHeader("token", token)//添加公共请求头  .add("time", System.currentTimeMillis())//添加公共参数
                     .addHeader("accept", "*/*"); //添加公共请求头
         });
     }
@@ -168,12 +168,12 @@ public class RxHttpManager {
                     // 添加公共参数
                     requestBuilder = original.newBuilder()
                             .header("cookie", cookie)
-                            .header("Authorization", IntentJumpUtils.getUsrToken())//重新添加Token
+                            .header("token", IntentJumpUtils.getUsrToken())//重新添加Token
                             .header("accept", "*/*"); //添加公共请求头
                 } else {
                     // 添加公共参数
                     requestBuilder = original.newBuilder()
-                            .header("Authorization", IntentJumpUtils.getUsrToken())//重新添加Token
+                            .header("token", IntentJumpUtils.getUsrToken())//重新添加Token
                             .header("accept", "*/*"); //添加公共请求头
                 }
                 Request request = requestBuilder.build();

@@ -12,6 +12,11 @@
     <string name="TabText2">商家</string>
     <string name="TabText3">积分商城</string>
     <string name="TabText4">我的</string>
+    <string name="ToResend">重新发送</string>
+    <string name="AccountCannotEmpty">请输入手机号</string>
+    <string name="TheVerificationCodeSent">验证码已发送</string>
+    <string name="loginSucceeded">登录成功</string>
+    <string name="LoginFailed">登录失败</string>
 
 
 </resources>

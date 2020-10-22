@@ -45,10 +45,6 @@ abstract class BaseMvpActivity : BaseActivity(), BaseView, PublicContract.View {
 
     override fun onDestroy() {
         super.onDestroy()
-        // 注销广播。
-        // 蓝牙广播
-        application.unregisterReceiver(mBluetoothStateBroadcastReceiver)
-        // 定位广播
     }
 
     /**

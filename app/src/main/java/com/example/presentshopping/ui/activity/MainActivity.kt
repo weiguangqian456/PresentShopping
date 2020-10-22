@@ -13,6 +13,7 @@ import com.example.presentshopping.ui.fragment.ClientFragment
 import com.example.presentshopping.ui.fragment.GatherFragment
 import com.example.presentshopping.ui.fragment.MyFragment
 import com.example.presentshopping.utils.edit.StatusBarUtil
+import com.example.presentshopping.utils.tool.IntentJumpUtils
 import com.example.presentshopping.utils.tool.SoftHideKeyBoardUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import org.greenrobot.eventbus.EventBus
@@ -48,8 +49,16 @@ class MainActivity : BaseMvpActivity() {
         ly_Tab3.setOnClickListener {                      // 加载Fragment
             switchFragment(2)
         }
-        ly_Tab4.setOnClickListener {                      // 加载Fragment
-            switchFragment(3)
+        ly_Tab4.setOnClickListener {
+            if (IntentJumpUtils.isLogin()) {
+                // 跳转首页
+                switchFragment(3)
+            } else {
+                // 登录
+                IntentJumpUtils.goToLogin(this@MainActivity, "")
+            }
+            // 加载Fragment
+
         }
 
 

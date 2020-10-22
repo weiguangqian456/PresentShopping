@@ -9,6 +9,11 @@ public class MyApplication extends Application {
 
     private static Context mContext;
     private static MyApplication mInstance;
+
+    public static MyApplication getInstance() {
+        return mInstance;
+    }
+
     // 当前线程id
     public static int mainThreadId;
     public static Handler handler;
@@ -21,6 +26,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        mInstance = this;
         mContext = getApplicationContext();
 
     }
