@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.presentshopping.R
 import com.example.presentshopping.config.base.BaseMvpActivity
+import com.example.presentshopping.config.event.MainFragmentEvent
 import com.example.presentshopping.ui.fragment.BoardFragment
 import com.example.presentshopping.ui.fragment.ClientFragment
 import com.example.presentshopping.ui.fragment.GatherFragment
@@ -14,10 +15,11 @@ import com.example.presentshopping.ui.fragment.MyFragment
 import com.example.presentshopping.utils.edit.StatusBarUtil
 import com.example.presentshopping.utils.tool.SoftHideKeyBoardUtil
 import kotlinx.android.synthetic.main.activity_main.*
+import org.greenrobot.eventbus.EventBus
 
 class MainActivity : BaseMvpActivity() {
 
-    private val showFragmentPage = -1
+    private var showFragmentPage = -1
     private var fragmentTransaction: FragmentTransaction? = null
     private var TabFragment1: Fragment? = null
     private var TabFragment2: Fragment? = null
@@ -35,6 +37,20 @@ class MainActivity : BaseMvpActivity() {
          */
         StatusBarUtil.setRootViewFitsSystemWindows(this, false)
         SoftHideKeyBoardUtil.assistActivity(this)
+        initFramgment()
+
+        ly_Tab1.setOnClickListener {                   // 加载Fragment
+            switchFragment(0)
+        }
+        ly_Tab2.setOnClickListener {                      // 加载Fragment
+            switchFragment(1)
+        }
+        ly_Tab3.setOnClickListener {                      // 加载Fragment
+            switchFragment(2)
+        }
+        ly_Tab4.setOnClickListener {                      // 加载Fragment
+            switchFragment(3)
+        }
 
 
     }
@@ -63,22 +79,74 @@ class MainActivity : BaseMvpActivity() {
 
     fun initFramgment() {
         // 初始化Fragment。
-
-        // 初始化Fragment。
         TabFragment1 = GatherFragment()
         TabFragment2 = BoardFragment()
         TabFragment3 = ClientFragment()
         TabFragment4 = MyFragment()
+        /**
+         * getFragmentManager();注：如果使用Android3.0以下的版本，需要引入v4的包，
+         * 然后Activity继承FragmentActivity，然后通过getSupportFragmentManager获得FragmentManager。
+         */
+        // 开启一个Fragment事务
+        fragmentTransaction = supportFragmentManager.beginTransaction()
+
+        // 如果MessageFragment为空，则创建一个并添加到界面上
+        fragmentTransaction!!.add(R.id.id_content, TabFragment1 as GatherFragment)
+        fragmentTransaction!!.add(R.id.id_content, TabFragment2 as BoardFragment)
+        fragmentTransaction!!.add(R.id.id_content, TabFragment3 as ClientFragment)
+        fragmentTransaction!!.add(R.id.id_content, TabFragment4 as MyFragment)
+        // 重置按钮
+        resetBtn()
+        // 加载Fragment
+        fragmentTransaction!!.commit()
+
+
+        // 页面判断（初始化加载页面）
+        switchFragment(0)
     }
 
-
+    // 加载Fragment
     fun switchFragment(page: Int) {
         if (page == showFragmentPage) {
             return
         }
         fragmentTransaction = supportFragmentManager.beginTransaction()
         resetBtn()
+        // 页面判断
+        when (page) {
+            0 -> {
+                ivTab1.setImageResource(R.mipmap.shouye)
+                tvTab1.setTextColor(resources.getColor(R.color.colorMain))
+                // 设置要显示的Fragment
+                fragmentTransaction!!.show(TabFragment1!!)
+            }
+            1 -> {
+                iv_Tab2.setImageResource(R.mipmap.gouwuche)
+                tv_Tab2.setTextColor(resources.getColor(R.color.colorMain))
+                // 设置要显示的Fragment
+                fragmentTransaction!!.show(TabFragment2!!)
+            }
+            2 -> {
+                iv_Tab3.setImageResource(R.mipmap.fenlei)
+                tv_Tab3.setTextColor(resources.getColor(R.color.colorMain))
+                // 设置要显示的Fragment
+                fragmentTransaction!!.show(TabFragment3!!)
+            }
+            3 -> {
+                iv_Tab4.setImageResource(R.mipmap.gerenzhongxin)
+                tv_Tab4.setTextColor(resources.getColor(R.color.colorMain))
+                // 设置要显示的Fragment
+                fragmentTransaction!!.show(TabFragment4!!)
+            }
+        }
 
+        // 发送到Fragment页面刷新数据
+        EventBus.getDefault().post(MainFragmentEvent(page))
+
+        // 加载Fragment
+        // 加载Fragment
+        fragmentTransaction!!.commit()
+        showFragmentPage = page
 
     }
 

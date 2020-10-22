@@ -34,7 +34,7 @@
 
         <!--   首页     -->
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name=".ui.activity.MainActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
@@ -49,7 +49,7 @@
 
         <!--   登录     -->
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name=".ui.activity.LoginActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
