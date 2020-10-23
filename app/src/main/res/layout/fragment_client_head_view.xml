@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/mIvBg"
+            android:layout_width="match_parent"
+            android:layout_height="214dp"
+            android:background="@drawable/bg_home_top"
+            android:scaleType="fitXY" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="137dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginRight="10dp"
+            app:cardCornerRadius="6dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.bigkoo.convenientbanner.ConvenientBanner
+                    android:id="@+id/cbanner_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="137dp"
+                    app:canLoop="true" />
+
+<!--                <ImageView-->
+<!--                    android:adjustViewBounds="true"-->
+<!--                    android:id="@+id/iv_banner_default"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:paddingTop="20dp"-->
+<!--                    android:scaleType="centerCrop" />-->
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+
+</LinearLayout>

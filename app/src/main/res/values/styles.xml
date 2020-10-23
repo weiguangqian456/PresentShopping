@@ -95,6 +95,22 @@
         <item name="android:windowEnterAnimation">@anim/dialog_in</item>
         <item name="android:windowExitAnimation">@anim/dialog_iout</item>
     </style>
+    <style name="LineH">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">#e4e6f0</item>
+    </style>
+
+
+    <!--  状态栏高度View,用于沉浸占位  -->
+    <declare-styleable name="StatusBarHeightView">
+        <attr name="use_type" format="integer">
+            <enum name="use_height" value="0" />
+            <enum name="use_padding_top" value="1" />
+        </attr>
+    </declare-styleable>
+
+
 
 
 </resources>

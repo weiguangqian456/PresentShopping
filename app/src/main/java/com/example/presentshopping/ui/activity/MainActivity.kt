@@ -22,10 +22,10 @@ class MainActivity : BaseMvpActivity() {
 
     private var showFragmentPage = -1
     private var fragmentTransaction: FragmentTransaction? = null
-    private var TabFragment1: Fragment? = null
-    private var TabFragment2: Fragment? = null
-    private var TabFragment3: Fragment? = null
-    private var TabFragment4: Fragment? = null
+    private lateinit var TabFragment1: Fragment
+    private lateinit var TabFragment2: Fragment
+    private lateinit var TabFragment3: Fragment
+    private lateinit var TabFragment4: Fragment
 
 
     override val layoutId: Int
@@ -173,6 +173,11 @@ class MainActivity : BaseMvpActivity() {
         iv_Tab4.setImageResource(R.mipmap.gerenzhongxin1)
         tv_Tab4.setTextColor(resources.getColor(R.color.colorLineBox))
 
+        // 先隐藏掉所有的Fragment，以防止有多个Fragment显示在界面上的情况
+        fragmentTransaction!!.hide(TabFragment1)
+        fragmentTransaction!!.hide(TabFragment2)
+        fragmentTransaction!!.hide(TabFragment3)
+        fragmentTransaction!!.hide(TabFragment4)
 
     }
 

@@ -1,22 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/public_color_F11801">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/refresh_layout"
+    <com.example.presentshopping.ui.custom.StatusBarHeightView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:use_type="use_padding_top">
 
-        android:layout_marginTop="1dp"
-        android:background="@color/colorBackground"
-        android:orientation="vertical">
-
-        <com.yanzhenjie.recyclerview.SwipeRecyclerView
-            android:id="@+id/recycler_view"
+        <RelativeLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/view_bar"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:background="@color/transparency" />
+
+            <View
+                android:id="@+id/view_bar_bg"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/public_color_F11801" />
+            <!--标题栏-->
+            <RelativeLayout
+                android:id="@+id/rl_title"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/view_bar">
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@drawable/location"
+                    android:drawablePadding="@dimen/dp5"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/dp_10"
+                    android:paddingRight="@dimen/dp5"
+                    android:text="暂无"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp12" />
+
+
+                <FrameLayout
+                    android:id="@+id/fl_msg"
+                    android:layout_width="45dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:visibility="gone">
+
+                    <View
+                        android:id="@+id/view_top_btn_bg_1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_home_top"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/iv_msg"
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/icon_xx" />
+
+                    <TextView
+                        android:id="@+id/tv_msg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:text="@string/text_msg"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dp10" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_share"
+                    android:layout_width="45dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="gone">
+
+                    <View
+                        android:id="@+id/view_top_btn_bg_2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_home_top"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/iv_share"
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/fenxiang" />
+
+                    <TextView
+                        android:id="@+id/tv_share"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:text="@string/text_share"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dp10" />
+                </FrameLayout>
+
+                <View
+                    android:id="@+id/view_title_line"
+                    style="@style/LineH"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/ll_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp8"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_toRightOf="@id/tv_location"
+                    android:background="@drawable/home_search_bg"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp">
+
+                    <ImageView
+                        android:id="@+id/iv_search"
+                        android:layout_width="@dimen/dp13"
+                        android:layout_height="@dimen/dp13"
+                        android:src="@drawable/sec_search" />
+
+                    <TextView
+                        android:id="@+id/et_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:background="@null"
+                        android:hint="搜索商品名称"
+                        android:textColor="@color/default_text"
+                        android:textSize="@dimen/dp12" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/refresh_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/rl_title"
+                android:layout_marginTop="-3dp"
+                android:orientation="vertical">
+
+                <com.yanzhenjie.recyclerview.SwipeRecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </RelativeLayout>
+    </com.example.presentshopping.ui.custom.StatusBarHeightView>
+</RelativeLayout>

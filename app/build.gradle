@@ -214,4 +214,7 @@ dependencies {
     // 支付依赖
     implementation(name: 'alipaySdk-15.6.5-20190718211159-noUtdid', ext: 'aar')
 
+    //轮播图
+    implementation 'com.bigkoo:convenientbanner:2.1.5'
+
 }

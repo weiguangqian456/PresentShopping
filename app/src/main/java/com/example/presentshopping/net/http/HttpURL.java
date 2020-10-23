@@ -38,6 +38,11 @@ public class HttpURL {
 
     public final static String Req_login = URL_dynamic + "/api/index/login";
 
+    //获取商品列表
+
+    public final static String Req_getGoodsList = URL_dynamic + "/api/goods/getGoodsList";
+    public final static String Req_ggetCarousel = URL_dynamic + "/api/index/getCarousel";
+
 
 
 

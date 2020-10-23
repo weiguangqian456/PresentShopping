@@ -39,6 +39,21 @@ public class HttpRequest {
         params.put("code", code);// phone	String	必填	手机号码
         return params;
     }
+    //获取商品列表
+    public static HashMap<String, Object> getGoodsList(int type, int page,int limit) {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("type", type);//1 推荐 2新品 3热销
+        params.put("page", page);//
+        params.put("limit", limit);//
+        return params;
+    }
+
+   //获取商品详情
+   public static HashMap<String, Object> getGoodsDetail(String  id) {
+       HashMap<String, Object> params = new HashMap<>();
+       params.put("id", id);//产品id
+       return params;
+   }
 
 
 

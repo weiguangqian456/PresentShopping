@@ -6,18 +6,26 @@ import android.content.Intent;
 import android.net.Uri;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.view.View;
 
+import com.bigkoo.convenientbanner.ConvenientBanner;
+import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
+import com.bigkoo.convenientbanner.holder.Holder;
 import com.blankj.utilcode.util.ActivityUtils;
+import com.example.presentshopping.R;
 import com.example.presentshopping.config.bean.LoinUlist;
 import com.example.presentshopping.config.constant.Constant;
 import com.example.presentshopping.config.constant.UserInforManage;
 import com.example.presentshopping.net.observer.TaskCallback;
 import com.example.presentshopping.ui.activity.LoginActivity;
 import com.example.presentshopping.ui.activity.MainActivity;
+import com.example.presentshopping.ui.adapter.HomePageBannerViewHolder;
 import com.example.presentshopping.utils.ToastUtil;
 
 
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
 
 import static com.blankj.utilcode.util.ActivityUtils.startActivity;
 
@@ -368,5 +376,22 @@ public class IntentJumpUtils {
             startActivity(intentlogin);
         }
     }
+
+    public static  void setPase(ConvenientBanner mCbBanner , List<Object> list){
+
+        mCbBanner.setPages(new CBViewHolderCreator() {
+            @Override
+            public Holder createHolder(View itemView) {
+                return new HomePageBannerViewHolder(itemView);
+            }
+
+            @Override
+            public int getLayoutId() {
+                return  R.layout.homepage_banner;
+            }
+        },list);
+    }
+
+
 
 }
