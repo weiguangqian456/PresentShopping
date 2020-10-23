@@ -34,18 +34,18 @@ public class HttpURL {
     // 流量卡的 baseUrl
     public final static String Base_flowCardIp = "http://99.liumall.co/inter/";
     // 1. 获取短信
-    public final static String Req_sendSms = URL_dynamic + "/api/index/getCaptcha";
+    public final static String Req_sendSms = URL_dynamic + "api/index/getCaptcha";
 
-    public final static String Req_login = URL_dynamic + "/api/index/login";
+    public final static String Req_login = URL_dynamic + "api/index/login";
 
     //获取商品列表
 
-    public final static String Req_getGoodsList = URL_dynamic + "/api/goods/getGoodsList";
-    public final static String Req_ggetCarousel = URL_dynamic + "/api/index/getCarousel";
+    public final static String Req_getGoodsList = URL_dynamic + "api/goods/getGoodsList";
+    public final static String Req_ggetCarousel = URL_dynamic + "api/index/getCarousel";
 
+    //获取用户信息
 
-
-
+    public final static String Req_getUserInfo = URL_dynamic + "api/member/getUserInfo";
 
 
 }

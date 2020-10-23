@@ -130,6 +130,7 @@ public class IntentJumpUtils {
      * 获取usr_token。
      */
     public static String getUsrToken() {
+
         return SharePrefrencesUtil.getString(Constant.SP_TOKEN, "");
     }
 
@@ -138,6 +139,9 @@ public class IntentJumpUtils {
      */
     public static boolean isLogin() {
         String data = getUserInforData();
+
+        LogUtils.p("getUsrToken-----",data);
+        LogUtils.p("getUsrToken-----", getUserInforData());
         if (StringUtils.isNotEmpty(getUsrToken()) && StringUtils.isNotEmpty(data)) {
             try {
                 LoinUlist logRegister = GsonUtils.getGson().fromJson(data, LoinUlist.class);

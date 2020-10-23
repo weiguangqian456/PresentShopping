@@ -18,13 +18,13 @@ android {
 
     // 开发环境 --- API接口地址：
     // def API_DEV_HOST = '"https://route.edawtech.com"'
-    def API_DEV_HOST = '"http://api.lxtianxia.cn"'
+    def API_DEV_HOST = '"http://api.lxtianxia.cn/"'
     // 测试环境 --- API接口地址：
-    def API_TEST_HOST = '"http://api.lxtianxia.cn"'
+    def API_TEST_HOST = '"http://api.lxtianxia.cn/"'
     // 正式环境 --- API接口地址：
-    def API_RELEASE_HOST = '"http://api.lxtianxia.cn"'
+    def API_RELEASE_HOST = '"http://api.lxtianxia.cn/"'
     // API接口版本前缀： '"/api"' (目前为空)
-    def API_URL_dynamic = '"http://api.lxtianxia.cn"'
+    def API_URL_dynamic = '"http://api.lxtianxia.cn/"'
     // API接口数据取第几条：
     def API_Position = 1
 

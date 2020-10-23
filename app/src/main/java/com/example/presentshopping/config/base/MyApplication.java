@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
+import com.example.presentshopping.net.manager.RxHttpManager;
+
 public class MyApplication extends Application {
 
 
@@ -28,6 +30,10 @@ public class MyApplication extends Application {
         super.onCreate();
         mInstance = this;
         mContext = getApplicationContext();
+        /**
+         * RxHttp初始化
+         */
+        RxHttpManager.init(this);
 
     }
 }

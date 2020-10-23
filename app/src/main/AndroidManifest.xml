@@ -25,8 +25,11 @@
         tools:ignore="AllowBackup"
         tools:replace="android:label"
         tools:targetApi="n">
-
-        <!-- 首页 -->
+        <activity android:name=".ui.activity.SettingActivity"></activity>
+        <activity android:name=".ui.activity.LocationActivity" />
+        <activity android:name=".ui.activity.WalletActivity" />
+        <activity android:name=".ui.activity.SpreadActivity" />
+        <activity android:name=".ui.activity.TeamActivity" /> <!-- 启动页面 -->
         <activity
             android:name=".ui.activity.WelcomeActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
@@ -39,22 +42,35 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- 登录 -->
+        </activity> <!-- 首页 -->
         <activity
             android:name=".ui.activity.MainActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/NoTitle"
-            android:windowSoftInputMode="adjustPan" />
-
+            android:windowSoftInputMode="adjustPan" /> <!-- 登录 -->
         <activity
             android:name=".ui.activity.LoginActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/NoTitle"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" /> <!-- 我的订单 -->
+        <activity
+            android:name=".ui.activity.OrderActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTitle"
+            android:windowSoftInputMode="adjustPan" /> <!-- 我的推广海报 -->
+        <activity
+            android:name=".ui.activity.RqCodeActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTitle"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>
