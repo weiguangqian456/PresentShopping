@@ -19,6 +19,17 @@
     <string name="LoginFailed">登录失败</string>
     <string name="text_share">分享</string>
     <string name="text_msg">消息</string>
+    <string name="personal_center">个人中心</string>
+    <string name="sign">签到</string>
+
+    <string name="meScan">我的订单</string>
+    <string name="mespreadcosd">我的推广海报</string>
+    <string name="meteam">我的团队</string>
+    <string name="mespread">我的推广</string>
+    <string name="mewallet">提现</string>
+    <string name="melocation">我的地址</string>
+    <string name="mesetting">基础设置</string>
+
 
 
 </resources>
