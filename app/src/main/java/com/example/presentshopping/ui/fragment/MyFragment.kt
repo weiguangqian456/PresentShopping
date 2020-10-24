@@ -12,14 +12,14 @@ import com.example.presentshopping.mvp.presenter.PublicPresenter
 import com.example.presentshopping.net.http.HttpRequest
 import com.example.presentshopping.net.http.HttpURL
 import com.example.presentshopping.net.observer.TaskCallback
-import com.example.presentshopping.ui.activity.OrderActivity
+import com.example.presentshopping.ui.activity.*
 import com.example.presentshopping.utils.tool.GsonUtils
 import com.example.presentshopping.utils.tool.IntentJumpUtils.goToLogin
 import com.example.presentshopping.utils.tool.IntentJumpUtils.startIntent
 import com.example.presentshopping.utils.tool.LogUtils
 import kotlinx.android.synthetic.main.fragment_my.*
 import rxhttp.wrapper.utils.LogUtil
-
+//个人中心
 class MyFragment : BaseMvpFragment() {
 
     private var queryInfoPresenter: PublicPresenter? = null
@@ -32,9 +32,18 @@ class MyFragment : BaseMvpFragment() {
         queryInfoPresenter = PublicPresenter(context, false, "")
         queryInfoPresenter?.attachView(this)
         oneMyINt()
-        view?.findViewById<LinearLayout>(R.id.iv_share0)?.setOnClickListener { startIntent(context,OrderActivity().javaClass)  }
 
+        view?.findViewById<LinearLayout>(R.id.iv_share0)?.setOnClickListener { startIntent(context, OrderActivity().javaClass) }
 
+        view?.findViewById<LinearLayout>(R.id.iv_share1)?.setOnClickListener { startIntent(context, RqCodeActivity().javaClass) }
+
+        view?.findViewById<LinearLayout>(R.id.iv_share2)?.setOnClickListener { startIntent(context, TeamActivity().javaClass) }
+
+        view?.findViewById<LinearLayout>(R.id.iv_share3)?.setOnClickListener { startIntent(context, SpreadActivity().javaClass) }
+
+        view?.findViewById<LinearLayout>(R.id.iv_share)?.setOnClickListener { startIntent(context, WalletActivity().javaClass) }
+
+        view?.findViewById<LinearLayout>(R.id.iv_share6)?.setOnClickListener { startIntent(context, LocationActivity().javaClass) }
 
 
     }
@@ -47,7 +56,7 @@ class MyFragment : BaseMvpFragment() {
                 override fun onSuccess(data: String?) {
                     data?.let { Log.e("MyFragment", it) }
                     userInforBean = GsonUtils.getGson().fromJson(data, UserInfoBean().javaClass)
-                    vs_myselft_account.text =userInforBean?.data?.mobile
+                    vs_myselft_account.text = userInforBean?.data?.mobile
                     balance_textview_01.text = userInforBean?.data?.balance
                     balance_textview_05.text = userInforBean?.data?.points.toString()
 
@@ -64,7 +73,6 @@ class MyFragment : BaseMvpFragment() {
             }
         )
     }
-
 
     override fun onSuccess(data: String?) {
 

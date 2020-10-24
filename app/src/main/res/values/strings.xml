@@ -29,6 +29,8 @@
     <string name="mewallet">提现</string>
     <string name="melocation">我的地址</string>
     <string name="mesetting">基础设置</string>
+    
+    <string name="particulars">拼团详情</string>
 
 
 </resources>

@@ -216,5 +216,8 @@ dependencies {
 
     //轮播图
     implementation 'com.bigkoo:convenientbanner:2.1.5'
+    // TabLayout 第三方库 —— FlycoTabLayout：https://github.com/H07000223/FlycoTabLayout
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
 
 }

@@ -48,4 +48,8 @@ public class HttpURL {
     public final static String Req_getUserInfo = URL_dynamic + "api/member/getUserInfo";
 
 
+    //获取订单列表
+    public final static String Req_getOrderList = URL_dynamic + "api/order/getOrderList";
+
+
 }

@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.activity.OrderActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.example.presentshopping.ui.custom.TitleView
+        android:id="@+id/title_main_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/TitleView_Height"
+        android:background="@color/colorEmpty"
+        app:left_image="@mipmap/icon_titlebar_close"
+        app:title_gravity="center"
+        app:title_name="@string/meScan"
+        app:title_textStyle="bold"
+        app:title_text_color="@color/colorFontDark"
+        app:title_text_size="16sp"
+        />
+
+        <!--tl_indicator_color：指示器的颜色-->
+        <!--tl_indicator_height：指示器的高度-->
+        <!--tl_indicator_width：指示器的宽度-->
+        <!--tl_indicator_corner_radius：设置显示器圆角弧度-->
+        <!--tl_indicator_margin_left：设置显示器margin,当indicator_width大于0,无效-->
+        <!--tl_indicator_margin_right：设置显示器margin,当indicator_width大于0,无效-->
+        <!--tl_indicator_style：设置显示器为常规(NORMAL)或三角形(TRIANGLE)或背景色块(BLOCK)-->
+        <!--tl_textUnselectColor：Tab未选中时字体的颜色-->
+        <!--tl_textSelectColor：Tab选中时字体的颜色-->
+        <!--tl_textsize：字体大小-->
+        <!--tl_indicator_width_equal_title：设置指示器宽度与文本宽度一致-->
+        <!--tl_tab_space_equal：设置Tab大小等分-->
+        <!--tl_tab_padding：设置tab的paddingLeft和paddingRight-->
+        <!--tl_textBold：boolean 设置字体加粗(NONE,SELECT,BOTH)-->
+        <!--tl_divider_color：分割线的颜色-->
+        <!--tl_divider_width：分割线的宽度-->
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:tl_indicator_color="@color/colorMain"
+            app:tl_indicator_corner_radius="2dp"
+            app:tl_indicator_height="2.8dp"
+            app:tl_indicator_margin_bottom="1dp"
+            app:tl_indicator_margin_left="1dp"
+            app:tl_indicator_margin_right="1dp"
+            app:tl_indicator_margin_top="1dp"
+            app:tl_indicator_style="NORMAL"
+            app:tl_indicator_width="30dp"
+            app:tl_tab_padding="12dp"
+            app:tl_tab_space_equal="true"
+            app:tl_textBold="BOTH"
+            app:tl_textSelectColor="@color/colorMain"
+            app:tl_textUnselectColor="@color/colorFontLight"
+            app:tl_textsize="15sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLinesLight" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+</LinearLayout>
