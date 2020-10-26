@@ -1,20 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/refresh_layout"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <!--tl_indicator_color：指示器的颜色-->
+    <!--tl_indicator_height：指示器的高度-->
+    <!--tl_indicator_width：指示器的宽度-->
+    <!--tl_indicator_corner_radius：设置显示器圆角弧度-->
+    <!--tl_indicator_margin_left：设置显示器margin,当indicator_width大于0,无效-->
+    <!--tl_indicator_margin_right：设置显示器margin,当indicator_width大于0,无效-->
+    <!--tl_indicator_style：设置显示器为常规(NORMAL)或三角形(TRIANGLE)或背景色块(BLOCK)-->
+    <!--tl_textUnselectColor：Tab未选中时字体的颜色-->
+    <!--tl_textSelectColor：Tab选中时字体的颜色-->
+    <!--tl_textsize：字体大小-->
+    <!--tl_indicator_width_equal_title：设置指示器宽度与文本宽度一致-->
+    <!--tl_tab_space_equal：设置Tab大小等分-->
+    <!--tl_tab_padding：设置tab的paddingLeft和paddingRight-->
+    <!--tl_textBold：boolean 设置字体加粗(NONE,SELECT,BOTH)-->
+    <!--tl_divider_color：分割线的颜色-->
+    <!--tl_divider_width：分割线的宽度-->
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/tablayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="-3dp"
-        android:orientation="vertical">
+        android:layout_height="40dp"
+        app:tl_indicator_color="@color/colorMain"
+        app:tl_indicator_corner_radius="2dp"
+        app:tl_indicator_height="2.8dp"
+        app:tl_indicator_margin_bottom="1dp"
+        app:tl_indicator_margin_left="1dp"
+        app:tl_indicator_margin_right="1dp"
+        app:tl_indicator_margin_top="1dp"
+        app:tl_indicator_style="NORMAL"
+        app:tl_indicator_width="30dp"
+        app:tl_tab_padding="12dp"
+        app:tl_tab_space_equal="false"
+        app:tl_textBold="BOTH"
+        app:tl_textSelectColor="@color/colorMain"
+        app:tl_textUnselectColor="@color/colorFontLight"
+        app:tl_textsize="15sp" />
 
-        <com.yanzhenjie.recyclerview.SwipeRecyclerView
-            android:id="@+id/Special_recy"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-</RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLinesLight" />
+   <androidx.viewpager.widget.ViewPager
+       android:id="@+id/SpecialViewPager"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
+
+</LinearLayout>
